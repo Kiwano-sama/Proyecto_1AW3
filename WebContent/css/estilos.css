@@ -1,0 +1,68 @@
+.registro-login{
+    background-color: #ffffff;
+    background-position: center;
+    width: 800px;
+    position: center;
+    margin: 50px auto;
+    padding: 100px;
+}
+.registro-login .reco-datos p{
+    text-align: left;
+    margin: 20px;
+}
+.registro-login .reco-datos p span{
+    font-weight: bold;
+}
+.registro-login .reco-datos p a{
+    text-decoration: none;
+}
+.registro-login .reco-datos p input{
+    width: 80px;
+}
+.registro-login ul{
+    display: inline-block;
+}
+.registro-login ul li{
+    float: left;
+    list-style: none;
+    padding: 10px;
+}
+.registro-login ul li a{
+    text-decoration: none;
+    color: blue;
+    font-size: 24px;
+}
+.registro-login ul li a:hover{
+    text-decoration: underline;
+}
+.registro-login form{
+    width: 400px;
+    margin: auto;
+}
+.registro-login form fieldset legend{
+    text-align: center;
+}
+.registro-login form p{
+    margin: 15px;
+    text-align: left;
+    font-size: 16px;
+}
+.registro-login form p input{
+    padding: 5px;
+}
+.registro-login form p a{
+    text-decoration: none;
+}
+.registro-login form p .inputespecial{
+    width: 300px;
+}
+.registro-login form p .inicio-sesion{
+    font-weight: bold;
+    font-size: 14px;
+}
+#contenedor{
+	display: block;
+    width: 1200px;
+    position: center;
+    margin: 0px auto;
+}
