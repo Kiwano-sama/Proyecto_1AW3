@@ -5,14 +5,16 @@ public class Usuario {
 	private String nombre;
 	private String password;
 	private String email;
+	private Boolean admin;
 	
 	//constructor
-	public Usuario(String dni, String nombre, String password, String email) {
+	public Usuario(String dni, String nombre, String password, String email, Boolean admin) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
 		this.password = password;
 		this.email = email;
+		this.admin = admin;
 	}
 	
 	public Usuario() {
@@ -43,6 +45,14 @@ public class Usuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 	
 

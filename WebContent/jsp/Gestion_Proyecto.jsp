@@ -8,5 +8,23 @@
 </head>
 <body>
 
+	<div>
+	<form action="PresentarProyecto.jsp">
+		<input type="submit" value="Presentar Proyecto"/>
+	</form>
+	<br />
+	<form action="ModificarProyecto.jsp">
+		<input type="submit" value="Modificar Proyecto" />
+	</form>
+	<br />
+	<form action="ConsultarProyecto.jsp">
+		<input type="submit" value="Consultar Proyecto" />
+	</form>
+	<br />
+	<form action="AportarProyecto.jsp">
+		<input type="submit" value="Aportar en Proyecto" />
+	</form>
+	</div>
+
 </body>
 </html>
