@@ -18,7 +18,7 @@
                 <a href="Index.jsp">Identifícate</a>
             </li>
         </ul>
-        <form action="confirmacion.html" method="get">
+        <form action="Bienvenida.jsp" method="post">
             <fieldset>
             <legend>Datos Personales</legend>
                 <p>Nombre</p>
