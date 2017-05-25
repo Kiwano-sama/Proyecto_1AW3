@@ -11,6 +11,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<% String error = (String) request.getParameter("error");
+	
+		if(error != null){
+			
+			if(error.equals("faltanDatos")){
+				%>
+				
+			<p>¡Error en el Registro. Faltan Datos. Vuelve a meter los datos!</p>
+			 <%
+			 } else if (error.equals("contrsenaNoCoincide")){
+				 %>
+					
+				<p>¡La Contraseña No Coincide!</p>
+				 <%
+			 }
+		}
+		%>
+		
     <div id="contenedor">
     <div class="registro-login">
         <ul>
@@ -22,20 +40,20 @@
             <fieldset>
             <legend>Datos Personales</legend>
                 <p>Nombre</p>
-                <p><input type="text" name="Nombre" Value=""/></p>
+                <p><input type="text" name="Nombre"/></p>
                 <p>Apellidos</p>
-                <p><input type="text" name="Apellido" Value=""/></p>
+                <p><input type="text" name="Apellido"/></p>
                 <p>D.N.I</p>
-                <p><input type="text" name="DNI" Value="" size="10" maxlength="9"/></p>
+                <p><input type="text" name="DNI" size="10" maxlength="9"/></p>
             </fieldset>
             <fieldset>
             <legend>Datos de conexión</legend>
                 <p>Correo Electronico o usuario:</p>
-                <p> <input class="inputespecial" type="text" name="Email" value=""/></p>
+                <p> <input class="inputespecial" type="text" name="Email"/></p>
                 <p>Contraseña:</p>
-                <p><input class="inputespecial" type="password" name="password" value="" maxlength="15" /></p>
+                <p><input class="inputespecial" type="password" name="password" maxlength="15" /></p>
                 <p>Repita la Contraseña:</p>
-                <p><input class="inputespecial" type="password" name="password2" value="" maxlength="15" /></p>
+                <p><input class="inputespecial" type="password" name="password2" maxlength="15" /></p>
                 <p><input type="submit" name="Crear Cuenta" value="Crear Cuenta"/> <input type="reset" name="limpiar" value="Borrar Los Datos" /></p>
             </fieldset>
         </form>

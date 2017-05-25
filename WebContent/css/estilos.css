@@ -66,3 +66,17 @@
     position: center;
     margin: 0px auto;
 }
+a.button { 
+   display: inline-block;
+   padding: 5px;
+   width: 150px;
+   height: 25px;
+   border: 1px solid #999;
+   color: #333;
+   text-decoration: none;
+   text-align: center;
+   margin-top: 15px;
+ }
+ a.button:hover {
+   background: #ccc;
+ }

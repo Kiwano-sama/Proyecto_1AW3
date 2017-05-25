@@ -20,7 +20,7 @@
 			<a href="Consultas.jsp" class="button">Consultar Clientes</a>
 			<br/>
 			<a href="Gestion_Proyectos.jsp" class="button">Gestión Proyectos</a>
-		<div class="registro-login">
+		</div>
 	</div>
 </body>
 </html>

@@ -19,14 +19,16 @@
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			response.sendRedirect("Gestion_Proyecto.jsp");
-			/* if(user.getAdmin().equals("1")){
-				session.setAttribute("user", user);
+			
+			
+			
+			if(user.isAdmin()){
+				
 				response.sendRedirect("Acciones.jsp");
 			}else{
-				session.setAttribute("user", user);
+				
 				response.sendRedirect("Gestion_Proyecto.jsp");
-			} */
+			}
 		} else {
 			response.sendRedirect("Index.jsp?error=datosmal");
 		}
