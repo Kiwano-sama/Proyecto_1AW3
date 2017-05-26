@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ModeloUsuario extends Conector{
 	public void insertar(Usuario usuario) throws Exception{
@@ -47,6 +48,48 @@ public class ModeloUsuario extends Conector{
 			throw e;
 		}
 		
+	}
+	
+	public ArrayList<Usuario> seleccionarNombre() throws Exception {
+
+		Statement st = cn.createStatement();
+		ResultSet rs = st.executeQuery("SELECT nombre FROM usuario ");
+		// pasar de ResultSet a ArrayList
+
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		while (rs.next()) {
+			Usuario usuario = new Usuario();
+			usuario.setNombre(rs.getString(1));
+
+			usuarios.add(usuario);
+		}
+		return usuarios;
+	}
+	
+	public ArrayList<Usuario> consultarUsuario (String nombre){
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		PreparedStatement pst;
+		
+		try {
+			pst=cn.prepareStatement("SELECT * FROM usuario WHERE nombre LIKE ?");
+			pst.setString(1, nombre);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setDni(rs.getString(1));
+				usuario.setNombre(rs.getString(2));
+				usuario.setPassword(rs.getString(3));
+				usuario.setEmail(rs.getString(4));
+				usuario.setAdmin(rs.getBoolean(5));
+
+				usuarios.add(usuario);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return usuarios;
 	}
 
 }
