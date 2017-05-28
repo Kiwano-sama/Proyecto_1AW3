@@ -20,6 +20,7 @@
 	ModeloProyecto modeloProyecto = new ModeloProyecto();
 	Proyecto proyecto = new Proyecto();
 	Usuario usuario = new Usuario();
+	Gestion gestion = new Gestion();
 	
 	if((nombre != null) && (descripcion != null) && (String.valueOf(presupuesto) != null) && 
 			(fechaEntrada != null) && (fechaFin != null) && (categoria != null) && (nombre != "") && (descripcion != "") && (String.valueOf(presupuesto) != "") && 
