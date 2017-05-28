@@ -52,5 +52,26 @@ public class ModeloProyecto extends Conector{
 		}
 		return proyectos;
 	}
+	
+	public void insertar(Proyecto proyecto) throws Exception{
+		try {
+
+			PreparedStatement pst = cn.prepareStatement("INSERT INTO proyecto (nproyecto, descripcion, meta, fechainicio, fechafin, categoria) VALUES (?,?,?,?,?,?)");
+
+			// System.out.println(pst);
+
+			pst.setString(2, proyecto.getNombre());
+			pst.setString(3, proyecto.getDescripcion());
+			pst.setInt(4, proyecto.getPresupuesto());
+			pst.setDate(5, proyecto.getFechaInicio());
+			pst.setDate(6, proyecto.getFechaFin());
+			pst.setString(7, proyecto.getCategoria());
+
+			pst.execute();// ejecuta
+			// System.out.println("usuario insertado correctamente");
+		} catch (SQLException ex) {
+			throw ex;
+		}
+	}
 
 }
