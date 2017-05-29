@@ -28,7 +28,7 @@
 
 
 	<h3>Proyecto Nuevo</h3>
-		<form action="login.jsp" method="post">
+		<form action="ProyectoInsertado.jsp" method="post">
 		<fieldset>
 			<p>NOMBRE DE PROYECTO:</p>
 			<p><input type="text" name="nombreProyecto" value="" maxlength="25" size="40" /></p>

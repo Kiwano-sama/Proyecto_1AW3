@@ -53,19 +53,41 @@ public class ModeloProyecto extends Conector{
 		return proyectos;
 	}
 	
+	public int getMaxId(){
+		
+		   int idMaximo = 0;
+
+	        PreparedStatement pst;
+	        try {
+	            pst = cn.prepareStatement("SELECT max(id) as maxid FROM proyecto");
+
+	            ResultSet rs = pst.executeQuery();
+
+	            // System.out.println(pst);
+
+	            if (rs.next()) {
+	                idMaximo = rs.getInt("maxid");
+	            }
+	        } catch (Exception e) {
+
+	            // e.printStackTrace();
+	        }
+	        return idMaximo;
+	
+	}
+	
 	public void insertar(Proyecto proyecto) throws Exception{
 		try {
 
-			PreparedStatement pst = cn.prepareStatement("INSERT INTO proyecto (nproyecto, descripcion, meta, fechainicio, fechafin, categoria) VALUES (?,?,?,?,?,?)");
+			PreparedStatement pst = cn.prepareStatement("INSERT INTO proyecto (nproyecto, descripcion, meta, fechainicio, fechafin, categoria) VALUES (?,?,?,now(),?,?)");
 
 			// System.out.println(pst);
 
-			pst.setString(2, proyecto.getNombre());
-			pst.setString(3, proyecto.getDescripcion());
-			pst.setInt(4, proyecto.getPresupuesto());
-			pst.setDate(5, proyecto.getFechaInicio());
-			pst.setDate(6, proyecto.getFechaFin());
-			pst.setString(7, proyecto.getCategoria());
+			pst.setString(1, proyecto.getNombre());
+			pst.setString(2, proyecto.getDescripcion());
+			pst.setInt(3, proyecto.getPresupuesto());
+			pst.setDate(4, new java.sql.Date(proyecto.getFechaFin().getTime()));
+			pst.setString(5, proyecto.getCategoria());
 
 			pst.execute();// ejecuta
 			// System.out.println("usuario insertado correctamente");

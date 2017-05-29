@@ -24,6 +24,73 @@
 <body>
 <p><a href="Index.jsp?principal=estilos">CSS Principal</a> - <a href="Index.jsp?principal=alternativo">CSS Alternativo</a></p>
 
+<%@page import="Modelo.*"%>
+	<%@page import="java.util.ArrayList"%>
+	
+	<%
+		ModeloUsuario modeloUsuario = new ModeloUsuario();
+
+		ArrayList<Usuario> nombreUsuario = new ArrayList<Usuario>();
+
+		nombreUsuario = modeloUsuario.seleccionarNombre();
+	%>
+	
+	<form action="ConsultarUsuario.jsp" method="get">
+		<select name="nombreUsuario">
+			<option value="" selected="selected">- selecciona -</option>
+
+			<%
+				for (Usuario user : nombreUsuario) {
+			%>
+
+			<option value="<%=user.getNombre()%>"><%=user.getNombre()%></option>
+
+
+			<%
+				}
+			%>
+		</select> 
+		<button type="submit" name="Buscar" value="Buscar" >Buscar</button>
+	</form>
+
+	<%
+if ((request.getParameter("nombreUsuario"))!=null){
+	
+
+
+%>
+
+	<table>
+		<tr>
+			<th>DNI</th>
+			<th>NOMBRE</th>
+			<th>EMAIL</th>
+			<th>PASSWORD</th>
+			<th>ADMINISTRADOR</th>
+			<th>eliminar</th>
+		</tr>
+
+		<%
+			ArrayList<Usuario> usuariosDetallados = new ArrayList<Usuario>();
+
+		usuariosDetallados = modeloUsuario.consultarUsuario(request.getParameter("nombreUsuario"));
+
+			for (Usuario user : usuariosDetallados) {
+		%>
+
+		<tr>
+			<td><%=user.getDni()%></td>
+			<td><%=user.getNombre()%></td>
+			<td><%=user.getEmail()%></td>
+			<td><%=user.getPassword()%></td>
+			<td><%=user.isAdmin()%></td>
+			<td><input type="submit" name="borrar"/></td>
+		</tr>
+
+		<%
+			}
+			}
+		%>
 
 </body>
 </html>

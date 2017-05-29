@@ -38,7 +38,7 @@
 		<input type="submit" value="Consultar Proyecto" />
 	</form>
 	<br />
-	<form action="AportarProyecto.jsp">
+	<form action="pago.jsp">
 		<input type="submit" value="Aportar en Proyecto" />
 	</form>
 	</div>
