@@ -25,6 +25,27 @@ public class ModeloUsuario extends Conector{
 			throw ex;
 		}
 	}
+	
+	public void borrarPorDni(String dniUsuario) throws Exception {
+		
+		try {
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM usuario WHERE dni = ?");
+            pst.setString(1, dniUsuario);
+            pst.execute();// ejecuta
+
+            if (pst.getUpdateCount() == 0) {// no a borrado nada
+                System.out.println("Se ha intentado borrar el usuario (DNI:" + dniUsuario + ") pero... sin resultados");
+            } else {
+                System.out.println("Producto con id " + dniUsuario + " borrado de la BBDD");
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+		
+		
+	}
+	
 	public Usuario selectUserLogin(String userlogin, String password) throws Exception {
 		String email = userlogin;
 
